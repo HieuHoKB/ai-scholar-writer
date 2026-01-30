@@ -1,0 +1,3 @@
+module.exports=[5102,a=>{"use strict";var b=a.i(89541);function c({children:a}){return(0,b.jsx)("html",{lang:"en",children:(0,b.jsx)("body",{className:"min-h-screen bg-gradient-to-br from-slate-50 to-blue-50",children:a})})}a.s(["default",()=>c,"metadata",0,{title:"AI Scholar Writer - Research Paper Assistant",description:"AI-powered research paper writing assistant for social sciences with APA citation support"}])}];
+
+//# sourceMappingURL=Documents_hhkb_ai-scholar-writer_src_app_layout_tsx_ab1b3fe3._.js.map

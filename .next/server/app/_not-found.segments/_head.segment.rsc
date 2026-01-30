@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[97629,["/_next/static/chunks/2e3eead8432cdf2a.js"],"ViewportBoundary"]
+3:I[97629,["/_next/static/chunks/2e3eead8432cdf2a.js"],"MetadataBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"SnpWJzcHi16P544bAg-GX","rsc":["$","$1","h",{"children":[["$","meta",null,{"name":"robots","content":"noindex"}],["$","$L2",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L3",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"AI Scholar Writer - Research Paper Assistant"}],["$","meta","1",{"name":"description","content":"AI-powered research paper writing assistant for social sciences with APA citation support"}]]}]}]}],null]}],"loading":null,"isPartial":false}
