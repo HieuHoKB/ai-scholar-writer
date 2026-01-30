@@ -1,0 +1,59 @@
+[debug] [2026-01-30T02:56:56.469Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-30T02:56:56.470Z] > authorizing via signed-in user (hotrunghieu94@gmail.com)
+[debug] [2026-01-30T02:56:56.471Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:56.471Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:56.471Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo [none]
+[debug] [2026-01-30T02:56:56.485Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-30T02:56:56.486Z] > authorizing via signed-in user (hotrunghieu94@gmail.com)
+[debug] [2026-01-30T02:56:56.486Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:56.486Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:56.486Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo [none]
+[debug] [2026-01-30T02:56:57.857Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo 200
+[debug] [2026-01-30T02:56:57.857Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo {"name":"projects/mcq-analyzer-255e2/billingInfo","projectId":"mcq-analyzer-255e2","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-30T02:56:57.862Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:57.862Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:57.868Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:57.868Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:57.868Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:57.868Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:57.868Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-30T02:56:57.868Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com  x-goog-user-project=mcq-analyzer-255e2
+[debug] [2026-01-30T02:56:57.869Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-30T02:56:57.869Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com  x-goog-user-project=mcq-analyzer-255e2
+[debug] [2026-01-30T02:56:57.869Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com [none]
+[debug] [2026-01-30T02:56:57.869Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com  x-goog-user-project=mcq-analyzer-255e2
+[debug] [2026-01-30T02:56:58.051Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo 200
+[debug] [2026-01-30T02:56:58.051Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo {"name":"projects/mcq-analyzer-255e2/billingInfo","projectId":"mcq-analyzer-255e2","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-30T02:56:58.052Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:58.052Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:58.055Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:58.055Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:58.055Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:58.055Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:56:58.055Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-30T02:56:58.055Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com  x-goog-user-project=mcq-analyzer-255e2
+[debug] [2026-01-30T02:56:58.056Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-30T02:56:58.057Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com  x-goog-user-project=mcq-analyzer-255e2
+[debug] [2026-01-30T02:56:58.057Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com [none]
+[debug] [2026-01-30T02:56:58.057Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com  x-goog-user-project=mcq-analyzer-255e2
+[debug] [2026-01-30T02:56:59.238Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com 403
+[debug] [2026-01-30T02:56:59.238Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com [omitted]
+[debug] [2026-01-30T02:56:59.426Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-30T02:56:59.426Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-30T02:56:59.479Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-30T02:56:59.479Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-30T02:57:00.474Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com 403
+[debug] [2026-01-30T02:57:00.474Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseio.com [omitted]
+[debug] [2026-01-30T02:57:00.680Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-30T02:57:00.680Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-30T02:57:00.749Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-30T02:57:00.749Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/mcq-analyzer-255e2/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-30T02:57:00.750Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-30T02:57:00.750Z] > authorizing via signed-in user (hotrunghieu94@gmail.com)
+[debug] [2026-01-30T02:57:00.750Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:57:00.750Z] Checked if tokens are valid: true, expires at: 1769743264342
+[debug] [2026-01-30T02:57:00.750Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo [none]
+[debug] [2026-01-30T02:57:02.044Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo 200
+[debug] [2026-01-30T02:57:02.044Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/mcq-analyzer-255e2/billingInfo {"name":"projects/mcq-analyzer-255e2/billingInfo","projectId":"mcq-analyzer-255e2","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-30T02:57:02.045Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-01-30T02:57:02.045Z] > authorizing via signed-in user (hotrunghieu94@gmail.com)
