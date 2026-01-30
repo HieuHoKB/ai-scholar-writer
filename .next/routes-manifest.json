@@ -39,6 +39,18 @@
       "regex": "^/_not\\-found(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/api/generate",
+      "regex": "^/api/generate(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/generate(?:/)?$"
+    },
+    {
+      "page": "/api/suggestions",
+      "regex": "^/api/suggestions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/suggestions(?:/)?$"
     }
   ],
   "dataRoutes": [],
