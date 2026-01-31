@@ -74,6 +74,9 @@ export default function Home() {
 		"openai/gpt-oss-120b:free",
 	);
 	const [activeSuggestion, setActiveSuggestion] = useState<string | null>(null);
+	const [sources, setSources] = useState<
+		Array<{ key: string; formatted: string; url: string }>
+	>([]);
 
 	const streamRef = useRef<ReadableStreamDefaultReader | null>(null);
 
@@ -103,6 +106,7 @@ export default function Home() {
 		const section = PAPER_SECTIONS[currentSection];
 		setIsStreaming(true);
 		setGeneratedContent("");
+		setSources([]);
 		setActiveSuggestion("generate");
 
 		try {
@@ -119,19 +123,15 @@ export default function Home() {
 
 			if (!response.ok) throw new Error("Generation failed");
 
-			// Handle streaming response
-			const reader = response.body?.getReader();
-			if (!reader) throw new Error("No response body");
+			// Handle the new JSON response with sources and citations
+			const data = await response.json();
 
-			streamRef.current = reader;
-			const decoder = new TextDecoder();
+			if (data.content) {
+				setGeneratedContent(data.content);
+			}
 
-			while (true) {
-				const { done, value } = await reader.read();
-				if (done) break;
-
-				const chunk = decoder.decode(value);
-				setGeneratedContent((prev) => prev + chunk);
+			if (data.citations) {
+				setSources(data.citations);
 			}
 		} catch (error) {
 			console.error("Generation error:", error);
@@ -412,6 +412,31 @@ export default function Home() {
 										<div className="academic-text text-sm max-h-60 overflow-y-auto">
 											{generatedContent}
 										</div>
+
+										{/* Sources & Citations */}
+										{sources.length > 0 && (
+											<div className="mt-4 pt-4 border-t border-purple-200">
+												<h4 className="text-sm font-medium text-purple-800 mb-2 flex items-center">
+													<Link className="w-4 h-4 mr-1" />
+													Sources & Citations ({sources.length})
+												</h4>
+												<div className="space-y-2 max-h-48 overflow-y-auto">
+													{sources.map((source, index) => (
+														<div
+															key={index}
+															className="text-xs bg-white p-2 rounded border border-purple-100"
+														>
+															<span className="font-medium text-purple-700">
+																[{source.key}]
+															</span>{" "}
+															<span className="text-gray-600">
+																{source.formatted}
+															</span>
+														</div>
+													))}
+												</div>
+											</div>
+										)}
 									</div>
 								)}
 

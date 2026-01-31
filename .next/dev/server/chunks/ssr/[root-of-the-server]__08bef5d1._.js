@@ -77,8 +77,9 @@ function Home() {
     });
     const [generatedContent, setGeneratedContent] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [isStreaming, setIsStreaming] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [selectedModel, setSelectedModel] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("anthropic/claude-3-haiku");
+    const [selectedModel, setSelectedModel] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("openai/gpt-oss-120b:free");
     const [activeSuggestion, setActiveSuggestion] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [sources, setSources] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
     const streamRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
     const handleStartWriting = ()=>{
         if (!theoryInput.trim()) return;
@@ -122,6 +123,7 @@ function Home() {
         const section = PAPER_SECTIONS[currentSection];
         setIsStreaming(true);
         setGeneratedContent("");
+        setSources([]);
         setActiveSuggestion("generate");
         try {
             const response = await fetch("/api/generate", {
@@ -137,16 +139,13 @@ function Home() {
                 })
             });
             if (!response.ok) throw new Error("Generation failed");
-            // Handle streaming response
-            const reader = response.body?.getReader();
-            if (!reader) throw new Error("No response body");
-            streamRef.current = reader;
-            const decoder = new TextDecoder();
-            while(true){
-                const { done, value } = await reader.read();
-                if (done) break;
-                const chunk = decoder.decode(value);
-                setGeneratedContent((prev)=>prev + chunk);
+            // Handle the new JSON response with sources and citations
+            const data = await response.json();
+            if (data.content) {
+                setGeneratedContent(data.content);
+            }
+            if (data.citations) {
+                setSources(data.citations);
             }
         } catch (error) {
             console.error("Generation error:", error);
@@ -267,11 +266,19 @@ function Home() {
                                     className: "text-sm border border-gray-300 rounded px-2 py-1",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                            value: "openai/gpt-oss-120b:free",
+                                            children: "GPT-OSS 120B (Free)"
+                                        }, void 0, false, {
+                                            fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                            lineNumber: 230,
+                                            columnNumber: 8
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                             value: "anthropic/claude-3-haiku",
                                             children: "Claude 3 Haiku"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 230,
+                                            lineNumber: 233,
                                             columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -279,7 +286,7 @@ function Home() {
                                             children: "Claude 3 Sonnet"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 231,
+                                            lineNumber: 234,
                                             columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -287,7 +294,7 @@ function Home() {
                                             children: "GPT-4 Turbo"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 232,
+                                            lineNumber: 235,
                                             columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -295,7 +302,7 @@ function Home() {
                                             children: "GPT-3.5 Turbo"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 233,
+                                            lineNumber: 236,
                                             columnNumber: 8
                                         }, this)
                                     ]
@@ -311,20 +318,20 @@ function Home() {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 236,
+                                            lineNumber: 239,
                                             columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Search Literature"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 237,
+                                            lineNumber: 240,
                                             columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                    lineNumber: 235,
+                                    lineNumber: 238,
                                     columnNumber: 7
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -334,20 +341,20 @@ function Home() {
                                             className: "w-4 h-4"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 240,
+                                            lineNumber: 243,
                                             columnNumber: 8
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Manage Citations"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 241,
+                                            lineNumber: 244,
                                             columnNumber: 8
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                    lineNumber: 239,
+                                    lineNumber: 242,
                                     columnNumber: 7
                                 }, this)
                             ]
@@ -378,7 +385,7 @@ function Home() {
                                 children: "Write Your Research Paper with AI Assistance"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                lineNumber: 251,
+                                lineNumber: 254,
                                 columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -386,13 +393,13 @@ function Home() {
                                 children: "Get help crafting academically rigorous research papers with proper APA formatting, citation management, and AI-powered content generation via OpenRouter."
                             }, void 0, false, {
                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                lineNumber: 254,
+                                lineNumber: 257,
                                 columnNumber: 6
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                        lineNumber: 250,
+                        lineNumber: 253,
                         columnNumber: 5
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -403,7 +410,7 @@ function Home() {
                                 children: "What is your research about?"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                lineNumber: 263,
+                                lineNumber: 266,
                                 columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -413,7 +420,7 @@ function Home() {
                                 className: "w-full h-40 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none academic-text"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                lineNumber: 266,
+                                lineNumber: 269,
                                 columnNumber: 6
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -426,14 +433,14 @@ function Home() {
                                                 className: "w-4 h-4 inline mr-1"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                lineNumber: 274,
+                                                lineNumber: 277,
                                                 columnNumber: 8
                                             }, this),
                                             "AI will help structure your paper based on your theory"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                        lineNumber: 273,
+                                        lineNumber: 276,
                                         columnNumber: 7
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -446,14 +453,14 @@ function Home() {
                                                     className: "w-5 h-5 animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 284,
+                                                    lineNumber: 287,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: "Generating Structure..."
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 285,
+                                                    lineNumber: 288,
                                                     columnNumber: 10
                                                 }, this)
                                             ]
@@ -463,33 +470,33 @@ function Home() {
                                                     children: "Start Writing"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 289,
+                                                    lineNumber: 292,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$chevron$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ChevronRight$3e$__["ChevronRight"], {
                                                     className: "w-5 h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 290,
+                                                    lineNumber: 293,
                                                     columnNumber: 10
                                                 }, this)
                                             ]
                                         }, void 0, true)
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                        lineNumber: 277,
+                                        lineNumber: 280,
                                         columnNumber: 7
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                lineNumber: 272,
+                                lineNumber: 275,
                                 columnNumber: 6
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                        lineNumber: 262,
+                        lineNumber: 265,
                         columnNumber: 5
                     }, this),
                     paperData.sections && Object.keys(paperData.sections).length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -507,14 +514,14 @@ function Home() {
                                                     className: "w-5 h-5 mr-2"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 304,
+                                                    lineNumber: 307,
                                                     columnNumber: 10
                                                 }, this),
                                                 "Paper Sections"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 303,
+                                            lineNumber: 306,
                                             columnNumber: 9
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -533,7 +540,7 @@ function Home() {
                                                                         children: index + 1
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                        lineNumber: 320,
+                                                                        lineNumber: 323,
                                                                         columnNumber: 14
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -541,47 +548,47 @@ function Home() {
                                                                         children: section.title
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                        lineNumber: 323,
+                                                                        lineNumber: 326,
                                                                         columnNumber: 14
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                lineNumber: 319,
+                                                                lineNumber: 322,
                                                                 columnNumber: 13
                                                             }, this),
                                                             paperData.sections[section.id]?.content && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                                 className: "w-2 h-2 bg-green-500 rounded-full"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                lineNumber: 328,
+                                                                lineNumber: 331,
                                                                 columnNumber: 14
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                        lineNumber: 318,
+                                                        lineNumber: 321,
                                                         columnNumber: 12
                                                     }, this)
                                                 }, section.id, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 309,
+                                                    lineNumber: 312,
                                                     columnNumber: 11
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 307,
+                                            lineNumber: 310,
                                             columnNumber: 9
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                    lineNumber: 302,
+                                    lineNumber: 305,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                lineNumber: 301,
+                                lineNumber: 304,
                                 columnNumber: 7
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -597,7 +604,7 @@ function Home() {
                                                     children: currentSectionData.title
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 341,
+                                                    lineNumber: 344,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -610,18 +617,18 @@ function Home() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                        lineNumber: 345,
+                                                        lineNumber: 348,
                                                         columnNumber: 11
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 344,
+                                                    lineNumber: 347,
                                                     columnNumber: 10
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 340,
+                                            lineNumber: 343,
                                             columnNumber: 9
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -629,7 +636,7 @@ function Home() {
                                             children: currentSectionData.description
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 351,
+                                            lineNumber: 354,
                                             columnNumber: 9
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -644,20 +651,20 @@ function Home() {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 362,
+                                                            lineNumber: 365,
                                                             columnNumber: 11
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: "Generate"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 363,
+                                                            lineNumber: 366,
                                                             columnNumber: 11
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 357,
+                                                    lineNumber: 360,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -669,20 +676,20 @@ function Home() {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 370,
+                                                            lineNumber: 373,
                                                             columnNumber: 11
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: "Improve"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 371,
+                                                            lineNumber: 374,
                                                             columnNumber: 11
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 365,
+                                                    lineNumber: 368,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -694,20 +701,20 @@ function Home() {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 378,
+                                                            lineNumber: 381,
                                                             columnNumber: 11
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: "Expand"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 379,
+                                                            lineNumber: 382,
                                                             columnNumber: 11
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 373,
+                                                    lineNumber: 376,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -719,26 +726,26 @@ function Home() {
                                                             className: "w-4 h-4"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 386,
+                                                            lineNumber: 389,
                                                             columnNumber: 11
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                             children: "Add Citations"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 387,
+                                                            lineNumber: 390,
                                                             columnNumber: 11
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 381,
+                                                    lineNumber: 384,
                                                     columnNumber: 10
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 356,
+                                            lineNumber: 359,
                                             columnNumber: 9
                                         }, this),
                                         generatedContent && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -757,7 +764,7 @@ function Home() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 395,
+                                                            lineNumber: 398,
                                                             columnNumber: 12
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -766,13 +773,13 @@ function Home() {
                                                             children: "Apply Changes"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                            lineNumber: 402,
+                                                            lineNumber: 405,
                                                             columnNumber: 12
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 394,
+                                                    lineNumber: 397,
                                                     columnNumber: 11
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -780,13 +787,78 @@ function Home() {
                                                     children: generatedContent
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 409,
+                                                    lineNumber: 412,
                                                     columnNumber: 11
+                                                }, this),
+                                                sources.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "mt-4 pt-4 border-t border-purple-200",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
+                                                            className: "text-sm font-medium text-purple-800 mb-2 flex items-center",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Link$3e$__["Link"], {
+                                                                    className: "w-4 h-4 mr-1"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                                                    lineNumber: 420,
+                                                                    columnNumber: 14
+                                                                }, this),
+                                                                "Sources & Citations (",
+                                                                sources.length,
+                                                                ")"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                                            lineNumber: 419,
+                                                            columnNumber: 13
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "space-y-2 max-h-48 overflow-y-auto",
+                                                            children: sources.map((source, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "text-xs bg-white p-2 rounded border border-purple-100",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "font-medium text-purple-700",
+                                                                            children: [
+                                                                                "[",
+                                                                                source.key,
+                                                                                "]"
+                                                                            ]
+                                                                        }, void 0, true, {
+                                                                            fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                                                            lineNumber: 429,
+                                                                            columnNumber: 16
+                                                                        }, this),
+                                                                        " ",
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                            className: "text-gray-600",
+                                                                            children: source.formatted
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                                                            lineNumber: 432,
+                                                                            columnNumber: 16
+                                                                        }, this)
+                                                                    ]
+                                                                }, index, true, {
+                                                                    fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                                                    lineNumber: 425,
+                                                                    columnNumber: 15
+                                                                }, this))
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                                            lineNumber: 423,
+                                                            columnNumber: 13
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
+                                                    lineNumber: 418,
+                                                    columnNumber: 12
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 393,
+                                            lineNumber: 396,
                                             columnNumber: 10
                                         }, this),
                                         isStreaming && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -796,20 +868,20 @@ function Home() {
                                                     className: "w-4 h-4 animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 418,
+                                                    lineNumber: 446,
                                                     columnNumber: 11
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: "AI is generating content..."
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 419,
+                                                    lineNumber: 447,
                                                     columnNumber: 11
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 417,
+                                            lineNumber: 445,
                                             columnNumber: 10
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -828,7 +900,7 @@ function Home() {
                                             className: "w-full h-96 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none academic-text"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 424,
+                                            lineNumber: 452,
                                             columnNumber: 9
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -839,7 +911,7 @@ function Home() {
                                                     children: "Writing Tips"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 444,
+                                                    lineNumber: 472,
                                                     columnNumber: 10
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -851,21 +923,21 @@ function Home() {
                                                                     children: "• Keep title concise (15-20 words)"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 450,
+                                                                    lineNumber: 478,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Include key variables or concepts"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 451,
+                                                                    lineNumber: 479,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: '• Avoid unnecessary words like "A Study of"'
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 452,
+                                                                    lineNumber: 480,
                                                                     columnNumber: 13
                                                                 }, this)
                                                             ]
@@ -876,21 +948,21 @@ function Home() {
                                                                     children: "• Start broad, narrow to specific problem"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 457,
+                                                                    lineNumber: 485,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Present research gap or significance"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 458,
+                                                                    lineNumber: 486,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• State research questions or objectives"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 459,
+                                                                    lineNumber: 487,
                                                                     columnNumber: 13
                                                                 }, this)
                                                             ]
@@ -901,21 +973,21 @@ function Home() {
                                                                     children: "• Organize by themes, not chronologically"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 464,
+                                                                    lineNumber: 492,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Synthesize, don't just summarize"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 465,
+                                                                    lineNumber: 493,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Identify gaps your study addresses"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 466,
+                                                                    lineNumber: 494,
                                                                     columnNumber: 13
                                                                 }, this)
                                                             ]
@@ -926,21 +998,21 @@ function Home() {
                                                                     children: "• Be detailed enough for replication"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 471,
+                                                                    lineNumber: 499,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Describe sampling procedure"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 472,
+                                                                    lineNumber: 500,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Explain data analysis approach"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 473,
+                                                                    lineNumber: 501,
                                                                     columnNumber: 13
                                                                 }, this)
                                                             ]
@@ -951,21 +1023,21 @@ function Home() {
                                                                     children: "• Report findings objectively"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 478,
+                                                                    lineNumber: 506,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Use appropriate statistical notation"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 479,
+                                                                    lineNumber: 507,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Include effect sizes and confidence intervals"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 480,
+                                                                    lineNumber: 508,
                                                                     columnNumber: 13
                                                                 }, this)
                                                             ]
@@ -976,21 +1048,21 @@ function Home() {
                                                                     children: "• Interpret results in context of literature"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 485,
+                                                                    lineNumber: 513,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Acknowledge limitations honestly"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 486,
+                                                                    lineNumber: 514,
                                                                     columnNumber: 13
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$hhkb$2f$ai$2d$scholar$2d$writer$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                                     children: "• Discuss theoretical and practical implications"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                                    lineNumber: 487,
+                                                                    lineNumber: 515,
                                                                     columnNumber: 13
                                                                 }, this)
                                                             ]
@@ -998,36 +1070,36 @@ function Home() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                                    lineNumber: 447,
+                                                    lineNumber: 475,
                                                     columnNumber: 10
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                            lineNumber: 443,
+                                            lineNumber: 471,
                                             columnNumber: 9
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                    lineNumber: 339,
+                                    lineNumber: 342,
                                     columnNumber: 8
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                                lineNumber: 338,
+                                lineNumber: 341,
                                 columnNumber: 7
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                        lineNumber: 299,
+                        lineNumber: 302,
                         columnNumber: 6
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/hhkb/ai-scholar-writer/src/app/page.tsx",
-                lineNumber: 248,
+                lineNumber: 251,
                 columnNumber: 4
             }, this)
         ]

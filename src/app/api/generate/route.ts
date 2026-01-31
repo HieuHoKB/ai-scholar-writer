@@ -1,4 +1,10 @@
 import OpenAI from "openai";
+import {
+	braveSearch,
+	createAPACitation,
+	generateCitationKey,
+	type SearchResult,
+} from "@/lib/brave-search";
 
 // Initialize OpenRouter client
 const openrouter = new OpenAI({
@@ -8,9 +14,69 @@ const openrouter = new OpenAI({
 
 export const runtime = "edge";
 
-export async function POST(req: Request) {
+interface Citation {
+	key: string;
+	formatted: string;
+	url: string;
+}
+
+interface GenerationResponse {
+	content: string;
+	sources: SearchResult[];
+	citations: Citation[];
+}
+
+async function searchForRelevantSources(
+	section: string,
+	topic: string,
+): Promise<SearchResult[]> {
+	try {
+		const results = await braveSearch.searchForSection(section, topic);
+		return results;
+	} catch (error) {
+		console.error("Search error:", error);
+		return [];
+	}
+}
+
+async function generateWithSources(
+	prompt: string,
+	systemMessage: string,
+	sources: SearchResult[],
+): Promise<string> {
+	// Build enhanced system message with sources
+	const sourcesContext =
+		sources.length > 0
+			? `\n\nRelevant sources to cite:\n${sources
+					.map((source, index) => `[${index + 1}] ${createAPACitation(source)}`)
+					.join("\n")}`
+			: "";
+
+	const enhancedSystemMessage = `${systemMessage}${sourcesContext}
+
+IMPORTANT: When discussing concepts from these sources, include inline citations in APA format like (Author, Year) or (Author1 & Author2, Year).
+Include the citation key in brackets like [1], [2] that references the sources list.
+Provide a comprehensive response that synthesizes information from these sources.`;
+
+	const completion = await openrouter.chat.completions.create({
+		model: "openai/gpt-oss-120b:free",
+		messages: [
+			{ role: "system", content: enhancedSystemMessage },
+			{ role: "user", content: prompt },
+		],
+		temperature: 0.7,
+		max_tokens: 2000,
+		stream: false,
+	});
+
+	return completion.choices[0]?.message?.content || "";
+}
+
+export async function POST(req: Request): Promise<Response> {
 	try {
 		const { prompt, section, context, model } = await req.json();
+
+		console.log("Generation request:", { model, section });
 
 		// Build system message for academic writing
 		const systemMessage = `You are an academic writing assistant helping users write research papers.
@@ -21,47 +87,41 @@ export async function POST(req: Request) {
     Focus on clarity, precision, and scholarly tone.
     Use appropriate academic vocabulary and sentence structures.`;
 
-		// Call OpenRouter API directly with streaming
-		const completion = await openrouter.chat.completions.create({
-			model: model || "anthropic/claude-3-haiku",
-			messages: [
-				{ role: "system", content: systemMessage },
-				{ role: "user", content: prompt },
-			],
-			temperature: 0.7,
-			max_tokens: 2000,
-			stream: true,
-		});
+		// Search for relevant sources
+		const sources = await searchForRelevantSources(section, prompt);
 
-		// Create a ReadableStream from the OpenRouter response
-		const readableStream = new ReadableStream({
-			async start(controller) {
-				const encoder = new TextEncoder();
-				try {
-					for await (const chunk of completion) {
-						const content = chunk.choices[0]?.delta?.content || "";
-						if (content) {
-							controller.enqueue(encoder.encode(content));
-						}
-					}
-					controller.close();
-				} catch (error) {
-					console.error("Stream processing error:", error);
-					controller.error(error);
-				}
-			},
-		});
+		// Generate content with citations
+		const content = await generateWithSources(prompt, systemMessage, sources);
 
-		return new Response(readableStream, {
+		// Format citations
+		const citations: Citation[] = sources.map((source) => ({
+			key: generateCitationKey(source),
+			formatted: createAPACitation(source),
+			url: source.url,
+		}));
+
+		// Create response
+		const responseData: GenerationResponse = {
+			content,
+			sources,
+			citations,
+		};
+
+		return new Response(JSON.stringify(responseData), {
 			headers: {
-				"Content-Type": "text/plain; charset=utf-8",
-				"Transfer-Encoding": "chunked",
+				"Content-Type": "application/json",
 			},
 		});
-	} catch (error) {
+	} catch (error: unknown) {
 		console.error("AI Generation error:", error);
+
+		const errorMessage =
+			error instanceof Error ? error.message : "Unknown error";
 		return new Response(
-			JSON.stringify({ error: "Failed to generate content" }),
+			JSON.stringify({
+				error: "Failed to generate content",
+				details: errorMessage,
+			}),
 			{
 				status: 500,
 				headers: { "Content-Type": "application/json" },

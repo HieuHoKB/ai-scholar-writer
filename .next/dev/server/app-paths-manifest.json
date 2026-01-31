@@ -1,3 +1,5 @@
 {
+  "/api/generate/route": "app-edge-has-no-entrypoint",
+  "/api/suggestions/route": "app-edge-has-no-entrypoint",
   "/page": "app/page.js"
 }

@@ -1,2 +1,14 @@
-[00:00:00.585] Server  LOG     ✓ Ready in 371ms
-[00:00:06.555] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:00.470] Server  LOG     ✓ Ready in 267ms
+[00:00:01.727] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:01.734] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.540] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:31.325] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Title & Abstract' }
+[00:05:30.990] Server  LOG     ✓ Compiled in 30ms
+[00:05:32.036] Server  LOG     ✓ Compiled in 11ms
+[00:05:33.251] Server  LOG     ✓ Compiled in 6ms
+[00:05:47.065] Server  LOG     ✓ Compiled in 7ms
+[00:05:48.737] Server  LOG     ✓ Compiled in 14ms
+[00:05:50.567] Server  LOG     ✓ Compiled in 7ms
+[00:06:40.162] Server  LOG     ✓ Compiled in 10ms
+[00:06:41.186] Server  LOG     ✓ Compiled in 6ms
+[00:06:42.105] Server  LOG     ✓ Compiled in 6ms
