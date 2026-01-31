@@ -71,7 +71,7 @@ export default function Home() {
 	const [generatedContent, setGeneratedContent] = useState("");
 	const [isStreaming, setIsStreaming] = useState(false);
 	const [selectedModel, setSelectedModel] = useState(
-		"anthropic/claude-3-haiku",
+		"openai/gpt-oss-120b:free",
 	);
 	const [activeSuggestion, setActiveSuggestion] = useState<string | null>(null);
 
@@ -227,6 +227,9 @@ export default function Home() {
 							onChange={(e) => setSelectedModel(e.target.value)}
 							className="text-sm border border-gray-300 rounded px-2 py-1"
 						>
+							<option value="openai/gpt-oss-120b:free">
+								GPT-OSS 120B (Free)
+							</option>
 							<option value="anthropic/claude-3-haiku">Claude 3 Haiku</option>
 							<option value="anthropic/claude-3-sonnet">Claude 3 Sonnet</option>
 							<option value="openai/gpt-4-turbo">GPT-4 Turbo</option>

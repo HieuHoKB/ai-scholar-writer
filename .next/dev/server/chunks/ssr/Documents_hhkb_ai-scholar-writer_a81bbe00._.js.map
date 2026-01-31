@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/src/app/layout.tsx"],"sourcesContent":["import type { Metadata } from \"next\";\nimport \"./globals.css\";\n\nexport const metadata: Metadata = {\n\ttitle: \"AI Scholar Writer - Research Paper Assistant\",\n\tdescription:\n\t\t\"AI-powered research paper writing assistant for social sciences with APA citation support\",\n};\n\nexport default function RootLayout({\n\tchildren,\n}: {\n\tchildren: React.ReactNode;\n}) {\n\treturn (\n\t\t<html lang=\"en\">\n\t\t\t<body className=\"min-h-screen bg-gradient-to-br from-slate-50 to-blue-50\">\n\t\t\t\t{children}\n\t\t\t</body>\n\t\t</html>\n\t);\n}\n"],"names":[],"mappings":";;;;;;;;;AAGO,MAAM,WAAqB;IACjC,OAAO;IACP,aACC;AACF;AAEe,SAAS,WAAW,EAClC,QAAQ,EAGR;IACA,qBACC,8RAAC;QAAK,MAAK;kBACV,cAAA,8RAAC;YAAK,WAAU;sBACd;;;;;;;;;;;AAIL"}},
+    {"offset": {"line": 38, "column": 0}, "map": {"version":3,"sources":["file:///Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/src/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.ts"],"sourcesContent":["module.exports = (\n  require('../../module.compiled') as typeof import('../../module.compiled')\n).vendored['react-rsc']!.ReactJsxDevRuntime\n"],"names":["module","exports","require","vendored","ReactJsxDevRuntime"],"mappings":"AAAAA,OAAOC,OAAO,GACZC,QAAQ,6JACRC,QAAQ,CAAC,YAAY,CAAEC,kBAAkB","ignoreList":[0]}}]
+}

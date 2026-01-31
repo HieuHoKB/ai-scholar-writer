@@ -1,0 +1,47 @@
+/* [project]/Documents/hhkb/ai-scholar-writer/src/app/globals.css [app-client] (css) */
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 241, 245, 249;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  font-family: Inter, system-ui, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.academic-text {
+  font-family: Georgia, Cambria, Times New Roman, serif;
+  line-height: 1.8;
+}
+
+@apply text-academic-navy font-semibold;
+
+@apply ml-8 text-sm space-y-2;
+
+@apply text-academic-slate;
+
+@apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
+
+@apply border-primary-500 ring-2 ring-primary-200;
+
+@apply bg-primary-50 border border-primary-200 rounded p-3 cursor-pointer hover:bg-primary-100 transition-colors;
+
+@apply text-academic-navy;
+
+@apply text-academic-slate text-sm ml-8;
+
+/*# sourceMappingURL=Documents_hhkb_ai-scholar-writer_src_app_globals_859baf46.css.map*/
