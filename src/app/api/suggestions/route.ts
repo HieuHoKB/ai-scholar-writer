@@ -39,7 +39,7 @@ export async function POST(req: Request) {
 		}
 
 		const completion = await openrouter.chat.completions.create({
-			model: "anthropic/claude-3-haiku",
+			model: "openai/gpt-oss-120b:free",
 			messages: [
 				{ role: "system", content: systemMessage },
 				{ role: "user", content: userPrompt },

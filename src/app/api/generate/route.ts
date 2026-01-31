@@ -77,6 +77,14 @@ export async function POST(req: Request): Promise<Response> {
 		const { prompt, section, context, model } = await req.json();
 
 		console.log("Generation request:", { model, section });
+		console.log(
+			"OpenRouter API key present:",
+			!!process.env.OPENROUTER_API_KEY,
+		);
+		console.log(
+			"Brave Search API key present:",
+			!!process.env.BRAVE_SEARCH_API_KEY,
+		);
 
 		// Build system message for academic writing
 		const systemMessage = `You are an academic writing assistant helping users write research papers.
@@ -88,10 +96,14 @@ export async function POST(req: Request): Promise<Response> {
     Use appropriate academic vocabulary and sentence structures.`;
 
 		// Search for relevant sources
+		console.log("Searching for sources...");
 		const sources = await searchForRelevantSources(section, prompt);
+		console.log("Found sources:", sources.length);
 
 		// Generate content with citations
+		console.log("Generating content with OpenRouter...");
 		const content = await generateWithSources(prompt, systemMessage, sources);
+		console.log("Generated content length:", content.length);
 
 		// Format citations
 		const citations: Citation[] = sources.map((source) => ({
@@ -114,6 +126,13 @@ export async function POST(req: Request): Promise<Response> {
 		});
 	} catch (error: unknown) {
 		console.error("AI Generation error:", error);
+
+		// Log more details about the error
+		if (error instanceof Error) {
+			console.error("Error name:", error.name);
+			console.error("Error message:", error.message);
+			console.error("Error stack:", error.stack);
+		}
 
 		const errorMessage =
 			error instanceof Error ? error.message : "Unknown error";

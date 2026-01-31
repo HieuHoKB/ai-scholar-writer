@@ -1,14 +1,536 @@
-[00:00:00.470] Server  LOG     ✓ Ready in 267ms
-[00:00:01.727] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:01.734] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:04.540] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:31.325] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Title & Abstract' }
-[00:05:30.990] Server  LOG     ✓ Compiled in 30ms
-[00:05:32.036] Server  LOG     ✓ Compiled in 11ms
-[00:05:33.251] Server  LOG     ✓ Compiled in 6ms
-[00:05:47.065] Server  LOG     ✓ Compiled in 7ms
-[00:05:48.737] Server  LOG     ✓ Compiled in 14ms
-[00:05:50.567] Server  LOG     ✓ Compiled in 7ms
-[00:06:40.162] Server  LOG     ✓ Compiled in 10ms
-[00:06:41.186] Server  LOG     ✓ Compiled in 6ms
-[00:06:42.105] Server  LOG     ✓ Compiled in 6ms
+[00:00:00.460] Server  LOG     ✓ Ready in 270ms
+[00:00:01.126] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:06.484] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:07.590] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:08.915] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:10.054] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:13.293] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Introduction' }
+[00:00:13.301] Server  LOG     OpenRouter API key present: true
+[00:00:13.301] Server  LOG     Brave Search API key present: true
+[00:00:13.301] Server  LOG     Searching for sources...
+[00:00:16.080] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:00:17.093] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:00:18.067] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:00:18.067] Server  LOG     Found sources: 0
+[00:00:18.068] Server  LOG     Generating content with OpenRouter...
+[00:00:18.916] Server  ERROR   AI Generation error: Error: 401 User not found.
+    at async generateWithSources (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:61:21)
+    at async POST (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:105:19)
+  59 | Provide a comprehensive response that synthesizes information from these sources.`;
+  60 |
+> 61 | 	const completion = await openrouter.chat.completions.create({
+     | 	                   ^
+  62 | 		model: "openai/gpt-oss-120b:free",
+  63 | 		messages: [
+  64 | 			{ role: "system", content: enhancedSystemMessage }, {
+  status: 401,
+  headers: Headers {  },
+  requestID: null,
+  error: { message: 'User not found.', code: 401 },
+  code: 401,
+  param: undefined,
+  type: undefined
+}
+[00:00:18.916] Server  ERROR   Error name: Error
+[00:00:18.916] Server  ERROR   Error message: 401 User not found.
+[00:00:18.916] Server  ERROR   Error stack: Error: 401 User not found.
+    at APIError.generate (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:161:20)
+    at OpenAI.makeStatusError (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:8965:223)
+    at OpenAI.makeRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:9136:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async generateWithSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:164:24)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:205:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+[00:00:20.226] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:32.979] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Title & Abstract' }
+[00:00:32.980] Server  LOG     OpenRouter API key present: true
+[00:00:32.980] Server  LOG     Brave Search API key present: true
+[00:00:32.980] Server  LOG     Searching for sources...
+[00:00:34.905] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:00:34.905] Server  LOG     Found sources: 0
+[00:00:34.905] Server  LOG     Generating content with OpenRouter...
+[00:00:35.274] Server  ERROR   AI Generation error: Error: 401 User not found.
+    at async generateWithSources (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:61:21)
+    at async POST (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:105:19)
+  59 | Provide a comprehensive response that synthesizes information from these sources.`;
+  60 |
+> 61 | 	const completion = await openrouter.chat.completions.create({
+     | 	                   ^
+  62 | 		model: "openai/gpt-oss-120b:free",
+  63 | 		messages: [
+  64 | 			{ role: "system", content: enhancedSystemMessage }, {
+  status: 401,
+  headers: Headers {  },
+  requestID: null,
+  error: { message: 'User not found.', code: 401 },
+  code: 401,
+  param: undefined,
+  type: undefined
+}
+[00:00:35.274] Server  ERROR   Error name: Error
+[00:00:35.274] Server  ERROR   Error message: 401 User not found.
+[00:00:35.274] Server  ERROR   Error stack: Error: 401 User not found.
+    at APIError.generate (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:161:20)
+    at OpenAI.makeStatusError (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:8965:223)
+    at OpenAI.makeRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:9136:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async generateWithSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:164:24)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:205:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+[00:00:35.377] Browser ERROR   Generation error: {}
+[00:01:02.625] Server  LOG       Reload env: .env.local
+[00:01:05.295] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:06.352] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:12.585] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Title & Abstract' }
+[00:01:12.585] Server  LOG     OpenRouter API key present: true
+[00:01:12.585] Server  LOG     Brave Search API key present: true
+[00:01:12.585] Server  LOG     Searching for sources...
+[00:01:14.502] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:01:14.503] Server  LOG     Found sources: 0
+[00:01:14.503] Server  LOG     Generating content with OpenRouter...
+[00:01:15.589] Server  ERROR   AI Generation error: Error: 401 User not found.
+    at async generateWithSources (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:61:21)
+    at async POST (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:105:19)
+  59 | Provide a comprehensive response that synthesizes information from these sources.`;
+  60 |
+> 61 | 	const completion = await openrouter.chat.completions.create({
+     | 	                   ^
+  62 | 		model: "openai/gpt-oss-120b:free",
+  63 | 		messages: [
+  64 | 			{ role: "system", content: enhancedSystemMessage }, {
+  status: 401,
+  headers: Headers {  },
+  requestID: null,
+  error: { message: 'User not found.', code: 401 },
+  code: 401,
+  param: undefined,
+  type: undefined
+}
+[00:01:15.589] Server  ERROR   Error name: Error
+[00:01:15.589] Server  ERROR   Error message: 401 User not found.
+[00:01:15.589] Server  ERROR   Error stack: Error: 401 User not found.
+    at APIError.generate (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:161:20)
+    at OpenAI.makeStatusError (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:8965:223)
+    at OpenAI.makeRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:9136:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async generateWithSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:164:24)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:205:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+[00:01:15.693] Browser ERROR   Generation error: {}
+[00:02:10.158] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:11.890] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:12.565] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:13.947] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:32.320] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Title & Abstract' }
+[00:02:32.321] Server  LOG     OpenRouter API key present: true
+[00:02:32.321] Server  LOG     Brave Search API key present: true
+[00:02:32.321] Server  LOG     Searching for sources...
+[00:02:35.825] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:02:35.825] Server  LOG     Found sources: 0
+[00:02:35.825] Server  LOG     Generating content with OpenRouter...
+[00:02:37.092] Server  ERROR   AI Generation error: Error: 401 User not found.
+    at async generateWithSources (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:61:21)
+    at async POST (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:105:19)
+  59 | Provide a comprehensive response that synthesizes information from these sources.`;
+  60 |
+> 61 | 	const completion = await openrouter.chat.completions.create({
+     | 	                   ^
+  62 | 		model: "openai/gpt-oss-120b:free",
+  63 | 		messages: [
+  64 | 			{ role: "system", content: enhancedSystemMessage }, {
+  status: 401,
+  headers: Headers {  },
+  requestID: null,
+  error: { message: 'User not found.', code: 401 },
+  code: 401,
+  param: undefined,
+  type: undefined
+}
+[00:02:37.092] Server  ERROR   Error name: Error
+[00:02:37.092] Server  ERROR   Error message: 401 User not found.
+[00:02:37.092] Server  ERROR   Error stack: Error: 401 User not found.
+    at APIError.generate (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:161:20)
+    at OpenAI.makeStatusError (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:8965:223)
+    at OpenAI.makeRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:9136:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async generateWithSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:164:24)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:205:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+[00:02:37.195] Browser ERROR   Generation error: {}
+[00:03:07.822] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Introduction' }
+[00:03:07.822] Server  LOG     OpenRouter API key present: true
+[00:03:07.822] Server  LOG     Brave Search API key present: true
+[00:03:07.822] Server  LOG     Searching for sources...
+[00:03:09.764] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:03:10.874] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:03:11.891] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:03:11.892] Server  LOG     Found sources: 0
+[00:03:11.892] Server  LOG     Generating content with OpenRouter...
+[00:03:12.811] Server  ERROR   AI Generation error: Error: 401 User not found.
+    at async generateWithSources (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:61:21)
+    at async POST (Documents/hhkb/ai-scholar-writer/src/app/api/generate/route.ts:105:19)
+  59 | Provide a comprehensive response that synthesizes information from these sources.`;
+  60 |
+> 61 | 	const completion = await openrouter.chat.completions.create({
+     | 	                   ^
+  62 | 		model: "openai/gpt-oss-120b:free",
+  63 | 		messages: [
+  64 | 			{ role: "system", content: enhancedSystemMessage }, {
+  status: 401,
+  headers: Headers {  },
+  requestID: null,
+  error: { message: 'User not found.', code: 401 },
+  code: 401,
+  param: undefined,
+  type: undefined
+}
+[00:03:12.811] Server  ERROR   Error name: Error
+[00:03:12.812] Server  ERROR   Error message: 401 User not found.
+[00:03:12.812] Server  ERROR   Error stack: Error: 401 User not found.
+    at APIError.generate (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:161:20)
+    at OpenAI.makeStatusError (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:8965:223)
+    at OpenAI.makeRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_openai_16346135._.js:9136:30)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async generateWithSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:164:24)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:205:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+[00:03:52.566] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:33.835] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Title & Abstract' }
+[00:04:33.836] Server  LOG     OpenRouter API key present: true
+[00:04:33.836] Server  LOG     Brave Search API key present: true
+[00:04:33.836] Server  LOG     Searching for sources...
+[00:04:36.765] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:04:36.765] Server  LOG     Found sources: 0
+[00:04:36.765] Server  LOG     Generating content with OpenRouter...
+[00:04:45.971] Server  LOG     Generated content length: 2721
+[00:06:22.424] Server  LOG     Generation request: { model: 'openai/gpt-oss-120b:free', section: 'Title & Abstract' }
+[00:06:22.424] Server  LOG     OpenRouter API key present: true
+[00:06:22.424] Server  LOG     Brave Search API key present: true
+[00:06:22.424] Server  LOG     Searching for sources...
+[00:06:28.232] Server  ERROR   Brave Search error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at parseJSONFromBytes (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:246133)
+    at successSteps (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245777)
+    at fullyReadBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:224173)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async consumeBody (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/compiled/edge-runtime/index.js:1:245878)
+    at async BraveSearchService.searchAcademicLiterature (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:51:26)
+    at async BraveSearchService.searchForSection (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:68:35)
+    at async searchForRelevantSources (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:149:25)
+    at async POST (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/[root-of-the-server]__f4891305._.js:201:25)
+    at async AppRouteRouteModule.do (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17103:23)
+    at async AppRouteRouteModule.handle (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:17194:26)
+    at async EdgeRouteModuleWrapper.handler (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:11153:19)
+    at async adapter (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/.next/dev/server/edge/chunks/58f7f_next_dist_esm_04096491._.js:4835:16)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:112:26
+    at async runWithTaggedErrors (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/web/sandbox/sandbox.js:109:9)
+    at async DevServer.runEdgeFunction (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:1352:24)
+    at async NextNodeServer.handleCatchallRenderRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/next-server.js:362:41)
+    at async DevServer.handleRequestImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/base-server.js:929:17)
+    at async /Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:387:20
+    at async Span.traceAsyncFn (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/dev/next-dev-server.js:383:24)
+    at async invokeRender (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:248:21)
+    at async handleRequest (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:447:24)
+    at async requestHandlerImpl (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/router-server.js:496:13)
+    at async Server.requestListener (/Users/hotrunghieu/Documents/hhkb/ai-scholar-writer/node_modules/next/dist/server/lib/start-server.js:226:13) {
+  
+}
+[00:06:28.232] Server  LOG     Found sources: 0
+[00:06:28.232] Server  LOG     Generating content with OpenRouter...
+[00:06:37.466] Server  LOG     Generated content length: 2842
